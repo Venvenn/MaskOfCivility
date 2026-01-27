@@ -1,6 +1,4 @@
 
-using Escalon.ActionSystem;
-
 namespace Escalon
 {
     /// <summary>
@@ -10,13 +8,11 @@ namespace Escalon
     {
         public readonly EntityManager EntityManager;
         public readonly DataManager DataManager;
-        public readonly ActionManager ActionManager;
 
-        public CoreManagers(EntityManager entityManager, DataManager dataManager, ActionManager actionManager)
+        public CoreManagers(EntityManager entityManager, DataManager dataManager)
         {
             EntityManager = entityManager;
             DataManager = dataManager;
-            ActionManager = actionManager;
         }
     }
 }
