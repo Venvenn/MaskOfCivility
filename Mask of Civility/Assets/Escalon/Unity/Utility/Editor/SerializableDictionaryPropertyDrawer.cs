@@ -16,11 +16,11 @@ namespace Escalon
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // Draw list of key/value pairs.
-            var list = property.FindPropertyRelative("_keysAndValues");
+            var list = property.FindPropertyRelative("KeysAndValues");
             EditorGUI.PropertyField(position, list, label, true);
             
             // Draw key collision warning.
-            var keyCollision = property.FindPropertyRelative("_keyCollision").boolValue;
+            var keyCollision = property.FindPropertyRelative("KeyCollision").boolValue;
             if (keyCollision)
             {
                 position.y += EditorGUI.GetPropertyHeight(list, true);
@@ -38,11 +38,11 @@ namespace Escalon
         {
             // Height of KeyValue list.
             float height = 0f;
-            var list = property.FindPropertyRelative("_keysAndValues");
+            var list = property.FindPropertyRelative("KeysAndValues");
             height += EditorGUI.GetPropertyHeight(list, true);
     
             // Height of key collision warning.
-            bool keyCollision = property.FindPropertyRelative("_keyCollision").boolValue;
+            bool keyCollision = property.FindPropertyRelative("KeyCollision").boolValue;
             if (keyCollision)
             {
                 height += warningBoxHeight * lineHeight;

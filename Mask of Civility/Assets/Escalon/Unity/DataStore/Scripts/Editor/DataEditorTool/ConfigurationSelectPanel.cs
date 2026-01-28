@@ -64,7 +64,7 @@ namespace Escalon.Unity
             List<string> errors = new List<string>();
             var jsonSerializerSettings = new JsonSerializerSettings()
             {
-                TypeNameHandling = TypeNameHandling.All,
+                TypeNameHandling = TypeNameHandling.Auto,
                 Error = delegate(object sender, ErrorEventArgs args)
                 {
                     errors.Add(args.ErrorContext.Error.Message);

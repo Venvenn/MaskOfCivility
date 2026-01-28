@@ -31,6 +31,7 @@ namespace Escalon.Unity
         {
             OnUpdate();
             FlowStateMachine.Update();
+            FlowStateMachine.UpdateAspects();
         }
 
         public void FixedUpdate()

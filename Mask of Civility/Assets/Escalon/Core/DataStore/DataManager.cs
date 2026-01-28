@@ -69,7 +69,11 @@ namespace Escalon
             
             string dataStoreJson = File.ReadAllText(fileToLoad);
 
-            DataStore dataStore = JsonConvert.DeserializeObject<DataStore>(dataStoreJson);
+            var jsonSerializerSettings = new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            };
+            DataStore dataStore = JsonConvert.DeserializeObject<DataStore>(dataStoreJson, jsonSerializerSettings);
             _data = new NonBoxingDictionary<Type, IData>(dataStore.DataObjects);
             return true;
         }
@@ -85,8 +89,12 @@ namespace Escalon
             {
                 Directory.CreateDirectory(directoryPath);
             }
-
-            string dataStoreJson = JsonConvert.SerializeObject(dataStore);
+            
+            var jsonSerializerSettings = new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            };
+            string dataStoreJson = JsonConvert.SerializeObject(dataStore,jsonSerializerSettings);
             File.WriteAllText(directoryPath + "/staticDataStore.json", dataStoreJson);
         }
     }

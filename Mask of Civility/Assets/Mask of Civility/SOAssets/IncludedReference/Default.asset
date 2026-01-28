@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf020891ae84e344a4ae13332bfd665, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::Escalon.EditorDataIncludedSO
+  IncludedDataWrappers:
+  - {fileID: 11400000, guid: 727a781b8d8cc62409420944e2e58177, type: 2}
+  - {fileID: 11400000, guid: d5786249ad9eddf408b243d9b82a20e8, type: 2}
+  - {fileID: 11400000, guid: e957cb80e3325cb4a9248258b500c03f, type: 2}
+  - {fileID: 11400000, guid: 4d5c976d13f215045ade830a5008a6af, type: 2}
+  - {fileID: 11400000, guid: 7d56201941b8df743ac210150b0bf27b, type: 2}

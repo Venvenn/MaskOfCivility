@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11496288bc035fb43a56c76c7eee6f3c, type: 3}
+  m_Name: ActionDataSO
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::ActionDataSO
+  _actionData:
+    Actions:
+    - Name: Attack
+      Text: Attack target out in the open
+      TargetType: 1
+      ResourceTargetTypes: -1
+      MaskEffect: -25
+      Duration:
+        Years: 0
+        Months: 1
+        Days: 0
+      Cost:
+        KeysAndValues:
+        - Key: 1
+          Value: 1000
+        - Key: 3
+          Value: 200
+        - Key: 4
+          Value: 500
+        KeyCollision: 0
+    - Name: Oil Pipline
+      Text: Let the Oil flow like freedom
+      TargetType: 2
+      ResourceTargetTypes: 8
+      MaskEffect: 4
+      Duration:
+        Years: 1
+        Months: 0
+        Days: 0
+      Cost:
+        KeysAndValues:
+        - Key: 4
+          Value: 500
+        - Key: 3
+          Value: 200
+        KeyCollision: 0
+    - Name: Ad Campaign
+      Text: 'The route to the Hearts and Minds of the masses is the Eyes, Mouths
+        and Wallets  '
+      TargetType: 2
+      ResourceTargetTypes: 1
+      MaskEffect: 1
+      Duration:
+        Years: 0
+        Months: 6
+        Days: 0
+      Cost:
+        KeysAndValues:
+        - Key: 4
+          Value: 200
+        - Key: 0
+          Value: 200
+        KeyCollision: 0
+    - Name: 'Infiltrate  '
+      Text: The chain of command grows very long indeed.
+      TargetType: 2
+      ResourceTargetTypes: 2
+      MaskEffect: 5
+      Duration:
+        Years: 0
+        Months: 2
+        Days: 0
+      Cost:
+        KeysAndValues:
+        - Key: 2
+          Value: 200
+        - Key: 0
+          Value: 300
+        - Key: 1
+          Value: 100
+        KeyCollision: 0
+    - Name: 'Assassinate  '
+      Text: They are in for the surprise of their life when they try to sign something
+        using my POISON PEN!
+      TargetType: 2
+      ResourceTargetTypes: 4
+      MaskEffect: 10
+      Duration:
+        Years: 0
+        Months: 0
+        Days: 2
+      Cost:
+        KeysAndValues:
+        - Key: 2
+          Value: 300
+        - Key: 4
+          Value: 500
+        KeyCollision: 0
+    - Name: Coup
+      Text: Its amazing what you can get done with a Duke
+      TargetType: 2
+      ResourceTargetTypes: -1
+      MaskEffect: 10
+      Duration:
+        Years: 0
+        Months: 1
+        Days: 3
+      Cost:
+        KeysAndValues:
+        - Key: 4
+          Value: 600
+        - Key: 1
+          Value: 400
+        - Key: 2
+          Value: 100
+        KeyCollision: 0
+    - Name: Buyout
+      Text: 'Globalised Infinite Growth '
+      TargetType: 2
+      ResourceTargetTypes: 24
+      MaskEffect: 2
+      Duration:
+        Years: 0
+        Months: 1
+        Days: 0
+      Cost:
+        KeysAndValues:
+        - Key: 4
+          Value: 1000
+        KeyCollision: 0
+    - Name: Colonise
+      Text: 'Manifest Destiny shall know no sunset nor horizon '
+      TargetType: 16
+      ResourceTargetTypes: -1
+      MaskEffect: 7
+      Duration:
+        Years: 0
+        Months: 4
+        Days: 0
+      Cost:
+        KeysAndValues:
+        - Key: 0
+          Value: 1000
+        KeyCollision: 0
+    - Name: Assimilate
+      Text: Why fight the inevitable. Why Resist the Avalanche.
+      TargetType: 16
+      ResourceTargetTypes: -1
+      MaskEffect: 4
+      Duration:
+        Years: 0
+        Months: 2
+        Days: 0
+      Cost:
+        KeysAndValues:
+        - Key: 0
+          Value: 500
+        - Key: 4
+          Value: 500
+        KeyCollision: 0

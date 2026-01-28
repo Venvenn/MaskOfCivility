@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Escalon
 {
@@ -12,10 +13,9 @@ namespace Escalon
         public static void Update(this Container container)
         {
             List<IUpdateable> aspects = container.GetUpdateableAspects();
-            ApplicationManager applicationManager = container.GetAspect<ApplicationManager>();
             for (int i = aspects.Count - 1; i >= 0; i--)
             {
-                aspects[i].Update(applicationManager.GetDeltaTime());
+                aspects[i].Update(Time.deltaTime);
             }
         }
     }

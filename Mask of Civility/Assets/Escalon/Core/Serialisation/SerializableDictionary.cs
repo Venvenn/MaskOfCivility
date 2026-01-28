@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using UnityEngine;
 
 namespace Escalon
 {
     [Serializable]
-    public partial class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializable
+    public partial class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
     {
         [Serializable]
         public struct KeyValue

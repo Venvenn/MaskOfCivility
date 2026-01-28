@@ -24,8 +24,11 @@ namespace Escalon
                     DataStore.DataObjects.Add(data.GetType(), data);
                 }
             }
-
-            string json = JsonConvert.SerializeObject(DataStore);
+            var jsonSerializerSettings = new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            };
+            string json = JsonConvert.SerializeObject(DataStore, jsonSerializerSettings);
             File.WriteAllText(FilePathDataStore, json);
             EditorUtility.SetDirty(IncludedSO);
             AssetDatabase.SaveAssets();

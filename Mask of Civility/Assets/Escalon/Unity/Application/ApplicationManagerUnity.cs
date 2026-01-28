@@ -25,6 +25,9 @@ namespace Escalon.Unity
             ResolutionManagerUnity resolutionManager = new ResolutionManagerUnity();
             resolutionManager.Init();
             Container.AddAspect(resolutionManager);
+            
+            ViewManager viewManager = Container.AddAspect<ViewManager>();
+            viewManager.AddView(nameof(FSGame), new GameView());
         }
 
         public override float GetDeltaTime()
