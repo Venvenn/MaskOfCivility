@@ -1,7 +1,7 @@
 
 public struct ResourceData
 {
-   public ResourceType ResourceType;
+   public ResourceTypes ResourceTypes;
    public int Amount;
 }
 

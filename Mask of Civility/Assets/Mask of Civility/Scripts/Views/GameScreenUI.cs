@@ -7,11 +7,11 @@ using UnityEngine;
 
 public class GameScreenUI : MonoBehaviour
 {
-    [SerializeField] private SerializableDictionary<ResourceType, TextBlock> _resources;
+    [SerializeField] private SerializableDictionary<ResourceTypes, TextBlock> _resources;
     [SerializeField] private Highlighter _highlighter;
     
     private CoreManagers _coreManagers;
-    private Dictionary<ResourceType, int> _lastAmount = new Dictionary<ResourceType, int>();
+    private Dictionary<ResourceTypes, int> _lastAmount = new Dictionary<ResourceTypes, int>();
 
     public void Init(CoreManagers coreManagers)
     {

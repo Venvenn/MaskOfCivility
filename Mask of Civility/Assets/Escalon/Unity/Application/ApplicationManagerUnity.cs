@@ -28,6 +28,7 @@ namespace Escalon.Unity
             
             ViewManager viewManager = Container.AddAspect<ViewManager>();
             viewManager.AddView(nameof(FSGame), new GameView());
+            viewManager.AddView(nameof(FSGeneration), new GenerationView());
         }
 
         public override float GetDeltaTime()

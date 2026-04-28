@@ -40,21 +40,21 @@ public class FSGame : FlowState
         bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.value), out hitInfo);
         if (hit) 
         {
-            if (hitInfo.transform.TryGetComponent<TileView>(out var tileView))
+            if (hitInfo.transform.TryGetComponent<TileView>(out var tileView) && tileView != null)
             {
                 selectionData.HoveredTile = tileView.Entity;
+                if(Mouse.current.leftButton.isPressed)
+                {
+                    this.PostNotification(Highlighter.k_openHighlighter, tileView.Entity);
+                    selectionData.SelectedTile = tileView.Entity;
+                    // AttackAction attackAction = new AttackAction(_coreManagers.DataManager.Read<TileActionsData>().Actions[0], tileView.Entity,_coreManagers.DataManager.Read<PlayerData>().Country, _coreManagers);
+                    // attackAction.Run();
+                } 
             }
             else
             {
                 selectionData.HoveredTile = Entity.Null;
             }
-            if(Mouse.current.leftButton.isPressed)
-            {
-                this.PostNotification(Highlighter.k_openHighlighter, tileView.Entity);
-                selectionData.SelectedTile = tileView.Entity;
-                // AttackAction attackAction = new AttackAction(_coreManagers.DataManager.Read<TileActionsData>().Actions[0], tileView.Entity,_coreManagers.DataManager.Read<PlayerData>().Country, _coreManagers);
-                // attackAction.Run();
-            } 
         }
         else
         {

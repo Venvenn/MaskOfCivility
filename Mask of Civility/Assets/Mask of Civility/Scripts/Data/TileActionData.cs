@@ -1,5 +1,6 @@
 using System;
 using Escalon;
+using Mono.Cecil;
 
 [Serializable]
 public struct TileActionData
@@ -7,10 +8,10 @@ public struct TileActionData
     public string Name;
     public string Text;
     public TargetType TargetType;
-    public ResourceTargetTypes ResourceTargetTypes;
+    public ResourceTypes ResourceTargetTypes;
     public int MaskEffect;
     public SerializableTimeSpan Duration;
-    public SerializableDictionary<ResourceType, int> Cost;
+    public SerializableDictionary<ResourceTypes, int> Cost;
 
     public DateTime GetDestinationDate(DateTime currentTime)
     {
@@ -45,15 +46,3 @@ public enum TargetType
     EnemyCountry = 1 << 3, 
     Unowned = 1 << 4
 }
-
-[Serializable, Flags]
-public enum ResourceTargetTypes
-{
-    None = 0,
-    Population = 1 << 0,
-    Military = 1 << 1,
-    Espionage = 1 << 2,
-    Industry = 1 << 3,
-    Economy = 1 << 4
-}
-

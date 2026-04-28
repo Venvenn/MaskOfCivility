@@ -5,9 +5,9 @@ using UnityEngine;
 public class ResourceDataSO : ToolDataObject
 {
     [SerializeField]
-    private SerializableDictionary<ResourceType, float> _startModifier;
+    private SerializableDictionary<ResourceTypes, float> _startModifier;
     [SerializeField]
-    private SerializableDictionary<ResourceType, Vector2Int> _amountRange;
+    private SerializableDictionary<ResourceTypes, Vector2Int> _amountRange;
     
     public override IData GetData()
     {

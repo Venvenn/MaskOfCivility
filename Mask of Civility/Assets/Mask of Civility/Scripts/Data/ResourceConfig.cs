@@ -6,6 +6,6 @@ using UnityEngine;
 [Serializable]
 public struct ResourceConfig : IData
 {
-    public Dictionary<ResourceType, float> StartModifier;
-    public Dictionary<ResourceType, Vector2Int> AmountRange;
+    public Dictionary<ResourceTypes, float> StartModifier;
+    public Dictionary<ResourceTypes, Vector2Int> AmountRange;
 }

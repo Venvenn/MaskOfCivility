@@ -12,7 +12,7 @@ public class ActionItemView : ButtonVisuals
     public TextBlock Description;
     public ListView Costs;
 
-    public void Init(TileActionData actionData, SerializableDictionary<ResourceType, Sprite> icons)
+    public void Init(TileActionData actionData, SerializableDictionary<ResourceTypes, Sprite> icons)
     {
         Costs.RemoveDataBinder<CostVisual, ImageButtonVisuals>(BindCost);
         Costs.AddDataBinder<CostVisual, ImageButtonVisuals>(BindCost);

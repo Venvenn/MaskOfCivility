@@ -11,7 +11,7 @@ public class Highlighter : MonoBehaviour
     public const string k_closeHighlighter = "Highlighter.CloseHighlighter";
     
     [SerializeField] private ListView _listView;
-    [SerializeField] private SerializableDictionary<ResourceType, Sprite> _icons;
+    [SerializeField] private SerializableDictionary<ResourceTypes, Sprite> _icons;
     
     private Entity _tileEntity = Entity.Null;
     private CoreManagers _coreManagers;
@@ -53,7 +53,7 @@ public class Highlighter : MonoBehaviour
                 }
             }
             
-            bool resourceType = (action.ResourceTargetTypes & (ResourceTargetTypes)resourceData.ResourceType) != 0;
+            bool resourceType = (action.ResourceTargetTypes & resourceData.ResourceTypes) != 0;
 
             if (targetType && resourceType)
             {

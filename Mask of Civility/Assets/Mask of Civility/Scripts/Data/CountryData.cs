@@ -9,5 +9,5 @@ public struct CountryData
     public Color Colour;
     public int2 OriginPoint;
     public float Mask;
-    public Dictionary<ResourceType, int> ResourceAmounts;
+    public Dictionary<ResourceTypes, int> ResourceAmounts;
 }

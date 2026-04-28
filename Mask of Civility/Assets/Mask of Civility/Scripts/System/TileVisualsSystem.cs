@@ -19,17 +19,15 @@ public class TileVisualsSystem : BaseSystem<World, float>
     {
         World.Query(in _desc, (Entity entity, ref GameObjectReference gameObjectReference, ref CountryTileData tile, ref TileViewData tileView) =>
         {
-            if (tile.HardHolder != Entity.Null)
-            {
-                tileView.View.SetResource();
-            }
+            tileView.View.SetDestination(Vector3.zero, Random.Range(1f, 5));
         }); 
     }
 
     public override void Update(in float t)
     {
         SelectionData selectionData = _coreManagers.DataManager.Read<SelectionData>();
-        World.Query(in _desc, (Entity entity, ref GameObjectReference gameObjectReference, ref CountryTileData tile) => 
+        PlayerData playerData = _coreManagers.DataManager.Read<PlayerData>();
+        World.Query(in _desc, (Entity entity, ref GameObjectReference gameObjectReference, ref CountryTileData tile,  ref TileViewData tileView) => 
         {
             if (tile.HardHolder != Entity.Null && tile.HardHolder.TryGet<CountryData>(out var countryData))
             {
@@ -40,15 +38,20 @@ public class TileVisualsSystem : BaseSystem<World, float>
                 
                 if (entity == selectionData.SelectedTile)
                 {
-                    gameObjectReference.Visual.transform.localPosition = new Vector3(0,1, 0);
+                    tileView.View.SetDestination(new Vector3(0,1f, 0), 0.2f);
                 }
                 else if(entity == selectionData.HoveredTile)
                 {
-                    gameObjectReference.Visual.transform.localPosition = new Vector3(0,0.5f, 0);
+                    tileView.View.SetDestination(new Vector3(0,0.5f, 0), 0.2f);
                 }
                 else
                 {
-                    gameObjectReference.Visual.transform.localPosition = new Vector3(0,0, 0);
+                    tileView.View.SetDestination(Vector3.zero, 0.1f);
+                }
+
+                if (playerData.Country == tile.HardHolder)
+                {
+                    tileView.View.SetResource();
                 }
             }
         });  

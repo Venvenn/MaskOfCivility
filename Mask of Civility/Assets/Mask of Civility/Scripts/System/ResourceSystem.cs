@@ -22,7 +22,7 @@ public class ResourceSystem : BaseSystem<World, float>
     public override void Initialize()
     {
         ResourceConfig resourceConfig = _coreManagers.DataManager.Read<ResourceConfig>();
-        Dictionary<Entity, Dictionary<ResourceType, int>> resourceAmounts = new Dictionary<Entity, Dictionary<ResourceType, int>>();
+        Dictionary<Entity, Dictionary<ResourceTypes, int>> resourceAmounts = new Dictionary<Entity, Dictionary<ResourceTypes, int>>();
         World.Query(in _desc,
             (Entity entity, ref GameObjectReference gameObjectReference, ref ResourceData resourceData,
                 ref CountryTileData tile) =>
@@ -32,15 +32,15 @@ public class ResourceSystem : BaseSystem<World, float>
                 {
                     if (!resourceAmounts.ContainsKey(countryEntity))
                     {
-                        resourceAmounts.Add(countryEntity, new Dictionary<ResourceType, int>());
+                        resourceAmounts.Add(countryEntity, new Dictionary<ResourceTypes, int>());
                     }
 
-                    if (!resourceAmounts[countryEntity].ContainsKey(resourceData.ResourceType))
+                    if (!resourceAmounts[countryEntity].ContainsKey(resourceData.ResourceTypes))
                     {
-                        resourceAmounts[countryEntity].Add(resourceData.ResourceType, 0);
+                        resourceAmounts[countryEntity].Add(resourceData.ResourceTypes, 0);
                     }
 
-                    resourceAmounts[countryEntity][resourceData.ResourceType] += resourceData.Amount;
+                    resourceAmounts[countryEntity][resourceData.ResourceTypes] += resourceData.Amount;
                 }
             });
         
@@ -62,7 +62,7 @@ public class ResourceSystem : BaseSystem<World, float>
         {
             if (tile.HardHolder != Entity.Null && tile.HardHolder.TryGet<CountryData>(out var countryData))
             {
-                countryData.ResourceAmounts[resourceData.ResourceType] += resourceData.Amount;
+                countryData.ResourceAmounts[resourceData.ResourceTypes] += resourceData.Amount;
             }
         });
         

@@ -91,20 +91,24 @@ public static class MapGeneratorSystem
         };
         map.Add(mapReference);
 
+        
+        
         for (int y = 0; y < mapGeneratorData.Size.y; y++)
         {
             for (int x = 0; x < mapGeneratorData.Size.x; x++)
             {
-                Entity entity = coreManagers.EntityManager.CreateEntity();
-
                 float height = noiseMap[x, y] - falloffMap[x, y];
 
                 if (height > mapGeneratorData.SeaLevel)
                 {
                     TileView tile = Object.Instantiate(mapGeneratorDynamicData.Prefab, mapReference.GameObject.transform);
+
+                    tile.transform.position = new Vector3(x - mapGeneratorData.Size.x *0.5f, height, y - mapGeneratorData.Size.y *0.5f);
+                    tile.View.transform.localPosition = Vector3.up * -10;
+                    Entity entity = coreManagers.EntityManager.CreateEntity();
                     mapData.Tiles[x, y] = entity;
-                    tile.transform.position = new Vector3(x, height, y);
                     tile.Entity = entity;
+                    
                     GameObjectReference reference = new GameObjectReference()
                     {
                         GameObject = tile.gameObject,
@@ -127,11 +131,11 @@ public static class MapGeneratorSystem
                     };
                     entity.Add(countryTileData);
                     
-                    ResourceType type = (ResourceType) Random.Range(0, Enum.GetNames(typeof(ResourceType)).Length);
-                    Vector2Int range = resourceConfig.AmountRange[type];
+                    ResourceTypes types = (ResourceTypes) Random.Range(0, Enum.GetNames(typeof(ResourceTypes)).Length);
+                    Vector2Int range = resourceConfig.AmountRange[types];
                     ResourceData resourceData = new ResourceData()
                     {
-                        ResourceType = type,
+                        ResourceTypes = types,
                         Amount = Random.Range(range.x, range.y)
                     };
                     entity.Add(resourceData);
@@ -177,7 +181,7 @@ public static class MapGeneratorSystem
             {
                 Name = i.ToString(),
                 Colour = color,
-                ResourceAmounts = new Dictionary<ResourceType, int>()
+                ResourceAmounts = new Dictionary<ResourceTypes, int>()
             };
 
             bool found = false;

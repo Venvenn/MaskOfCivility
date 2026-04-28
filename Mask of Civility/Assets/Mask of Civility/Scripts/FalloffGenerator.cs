@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Unity.Mathematics;
 
 public static class FalloffGenerator {
 
-	public static float[,] GenerateFalloffMap(int2 size) {
+	public static float[,] GenerateFalloffMap(int2 size) 
+	{
 		float[,] map = new float[size.x,size.y];
 
 		for (int i = 0; i < size.x; i++) {
@@ -20,7 +20,8 @@ public static class FalloffGenerator {
 		return map;
 	}
 
-	static float Evaluate(float value) {
+	static float Evaluate(float value) 
+	{
 		float a = 3;
 		float b = 2.2f;
 
